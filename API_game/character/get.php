@@ -1,10 +1,10 @@
 <?php
-header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Origin: 'http://teoth.online/API_game/'");
 header("Content-Type: application/json; charset=UTF-8");
-header("Access-Control-Allow-Methods: POST");
+header("Access-Control-Allow-Methods: GET");
 header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
-include_once("/PHP/database/conection.php");
+include_once("../../database/conection.php");
 
 try{
     $userID = $_GET['userID'];
@@ -12,7 +12,7 @@ try{
     //get data
     $query = "SELECT * FROM characters where userID = '$userID'";
     $result = $dbConn->query($query);
-    $char = $result->fetchAll(PDO::FETCH_ASSOC);
+    $char = $result->fetch(PDO::FETCH_ASSOC);
     echo json_encode(
         array(
             "status" => true,

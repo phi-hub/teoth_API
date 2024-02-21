@@ -4,7 +4,7 @@ header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
-include_once("/PHP/database/conection.php");
+include_once("../../database/conection.php");
 include_once("../jwt.php");
 
 try {
@@ -30,14 +30,14 @@ try {
         }
         else{
             //creat token
-            $token = array(
-                "id" => $user['id'],
-                "email" => $user['email'],
-                "name" => $user['name'],
-                "exp" =>(time() +60)
-            );
-            $header = array('alg' => 'HS256', 'type' => 'JWT');
-            $jwt = generate_jwt($header, $token);
+            // $token = array(
+            //     "id" => $user['id'],
+            //     "email" => $user['email'],
+            //     "name" => $user['name'],
+            //     "exp" =>(time() +60)
+            // );
+            //$header = array('alg' => 'HS256', 'type' => 'JWT');
+            //$jwt = generate_jwt($header, $token);
             echo json_encode(
                 array(
                     "status" => true,
