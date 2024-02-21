@@ -7,9 +7,10 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 include_once("/PHP/database/conection.php");
 
 try{
-    
+    $worldID = $_GET['worldID'];
+
     //get data
-    $query = "SELECT * FROM worlds";
+    $query = "SELECT * FROM worlds WHERE worldID = '$worldID'";
     $result = $dbConn->query($query);
     $world = $result->fetchAll(PDO::FETCH_ASSOC);
     echo json_encode(

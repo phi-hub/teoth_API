@@ -17,13 +17,15 @@ try {
     $str = $data->str;
     $ints = $data->ints;
     $luk = $data->luk;
-    $position = $data->position;
+    $positionX = $data->positionX;
+    $positionY = $data->positionY;
+    $positionZ = $data->positionZ;
     $gold = $data->gold;
     $worldID = $data->worldID;
     
     
     $query = "UPDATE characters SET level = '$level', skill_level = '$skill_level', mp = '$mp', vit = '$vit', str = '$str',  
-    ints='$ints', luk='$luk',  position='$position',  gold='$gold', worldID='$worldID' WHERE characterID = '$characterID' ";
+    ints='$ints', luk='$luk',  positionX='$positionX', positionY='$positionY', positionZ='$positionZ',  gold='$gold', worldID='$worldID' WHERE characterID = '$characterID' ";
     $stmt = $dbConn->prepare($query);
     $stmt->execute();
 
